@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Result</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body class="dark">
+
+<div class="container">
+
+    <h1>ATS SCORE : {{ score }}%</h1>
+
+    <h2>Detected Skills</h2>
+
+    {% for skill in skills %}
+
+        <button class="skill-btn"
+        onclick="toggleBox('{{ skill }}')">
+
+            {{ skill }}
+
+        </button>
+
+        <div class="box" id="{{ skill }}">
+
+            <h3>Certifications</h3>
+
+            {% for cert in certifications[skill] %}
+                <p>{{ cert }}</p>
+            {% endfor %}
+
+            <h3>Internships</h3>
+
+            {% for intern in internships[skill] %}
+                <p>{{ intern }}</p>
+            {% endfor %}
+
+            <br>
+
+            <a href="/career/{{ skill }}">
+
+                <button class="career-btn">
+
+                    View Career Path
+
+                </button>
+
+            </a>
+
+        </div>
+
+    {% endfor %}
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

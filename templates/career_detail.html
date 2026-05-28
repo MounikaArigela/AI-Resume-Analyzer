@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Career Detail</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body class="dark">
+
+<div class="container">
+
+{% if data %}
+
+    <h1>🚀 {{ skill.upper() }} Career Path</h1>
+
+    <div class="career-box">
+
+        <h2>📘 About</h2>
+
+        <p>{{ data.description }}</p>
+
+    </div>
+
+    <div class="career-box">
+
+        <h2>🛣 Learning Roadmap</h2>
+
+        {% for step in data.roadmap %}
+
+            <p>✅ {{ step }}</p>
+
+        {% endfor %}
+
+    </div>
+
+    <div class="career-box">
+
+        <h2>💼 Career Roles</h2>
+
+        {% for role in data.roles %}
+
+            <p>👉 {{ role }}</p>
+
+        {% endfor %}
+
+    </div>
+
+    <div class="career-box">
+
+        <h2>🏢 Top IT Companies</h2>
+
+        {% for company in data.companies %}
+
+            <p>⭐ {{ company }}</p>
+
+        {% endfor %}
+
+    </div>
+
+{% else %}
+
+    <h1>No Career Data Found</h1>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>

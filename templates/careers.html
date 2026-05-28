@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Career Path</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body class="dark">
+
+<div class="container">
+
+    <h1>🎯 Career Paths</h1>
+
+    {% for skill, role_list in roles.items() %}
+
+        <div class="career-box">
+
+            <h2>{{ skill }}</h2>
+
+            {% for role in role_list %}
+
+                <p>👉 {{ role }}</p>
+
+            {% endfor %}
+
+        </div>
+
+    {% endfor %}
+
+</div>
+
+</body>
+</html>
